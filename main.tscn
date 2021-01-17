@@ -10,53 +10,89 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.215686, 0.215686, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 127.38
-margin_top = 63.8654
-margin_right = 697.38
-margin_bottom = 605.865
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 40.0
+margin_right = -10.0
+margin_bottom = -40.0
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="OpenFile" type="Button" parent="."]
-margin_left = 767.435
-margin_top = 28.6519
-margin_right = 841.435
-margin_bottom = 48.6519
-text = "Open File"
-
-[node name="SaveFile" type="Button" parent="."]
-margin_left = 880.309
-margin_top = 29.2485
-margin_right = 968.309
-margin_bottom = 49.2485
-text = "Save As File"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="FolderDialog" type="FileDialog" parent="."]
 margin_left = 281.798
 margin_top = 81.6359
 margin_right = 849.798
 margin_bottom = 457.636
-window_title = "Open File"
-mode = 0
+window_title = "Open a Directory"
+mode = 2
 access = 2
 current_dir = "/synology/godot/romcleanerex"
 current_path = "/synology/godot/romcleanerex/"
 
-[node name="SaveFileDialog" type="FileDialog" parent="."]
+[node name="SaveFilteredDialog" type="FileDialog" parent="."]
 margin_left = 281.798
 margin_top = 81.6359
 margin_right = 849.798
 margin_bottom = 457.636
-window_title = "Save File"
+window_title = "Open a Directory"
+mode = 2
 access = 2
 current_dir = "/synology/godot/romcleanerex"
 current_path = "/synology/godot/romcleanerex/"
-[connection signal="pressed" from="OpenFile" to="." method="_on_OpenFile_pressed"]
-[connection signal="pressed" from="SaveFile" to="." method="_on_SaveFile_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
-[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
+
+[node name="MenuButtonFile" type="MenuButton" parent="."]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 70.0
+margin_bottom = 42.0
+text = "File"
+align = 0
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonHelp" type="MenuButton" parent="."]
+margin_left = 75.3266
+margin_top = 4.55759
+margin_right = 230.327
+margin_bottom = 42.5576
+text = "Help"
+align = 0
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutDialog" type="WindowDialog" parent="."]
+margin_left = 169.0
+margin_top = 96.0
+margin_right = 857.0
+margin_bottom = 521.0
+window_title = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AboutDialog"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 686.0
+margin_bottom = 422.0
+text = "Developed with <3 by NahuGravelord"
+align = 1
+valign = 1
+autowrap = true
+[connection signal="dir_selected" from="FolderDialog" to="." method="_on_FolderDialog_dir_selected"]
+[connection signal="dir_selected" from="SaveFilteredDialog" to="." method="_on_SaveFilteredDialog_dir_selected"]
