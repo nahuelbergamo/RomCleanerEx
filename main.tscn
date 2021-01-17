@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://app.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 127.38
+margin_top = 63.8654
+margin_right = 697.38
+margin_bottom = 605.865
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenFile" type="Button" parent="."]
+margin_left = 767.435
+margin_top = 28.6519
+margin_right = 841.435
+margin_bottom = 48.6519
+text = "Open File"
+
+[node name="SaveFile" type="Button" parent="."]
+margin_left = 880.309
+margin_top = 29.2485
+margin_right = 968.309
+margin_bottom = 49.2485
+text = "Save As File"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 281.798
+margin_top = 81.6359
+margin_right = 849.798
+margin_bottom = 457.636
+window_title = "Open File"
+mode = 0
+access = 2
+current_dir = "/synology/godot/romcleanerex"
+current_path = "/synology/godot/romcleanerex/"
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+margin_left = 281.798
+margin_top = 81.6359
+margin_right = 849.798
+margin_bottom = 457.636
+window_title = "Save File"
+access = 2
+current_dir = "/synology/godot/romcleanerex"
+current_path = "/synology/godot/romcleanerex/"
+[connection signal="pressed" from="OpenFile" to="." method="_on_OpenFile_pressed"]
+[connection signal="pressed" from="SaveFile" to="." method="_on_SaveFile_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
