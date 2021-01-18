@@ -1,32 +1,128 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://app.gd" type="Script" id=1]
+[ext_resource path="res://default_theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Hack-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 15
+font_data = SubResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="AppBackgroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="MenuPanelBackground" type="ColorRect" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 40.0
-margin_right = -10.0
-margin_bottom = -40.0
+margin_bottom = 45.0
+color = Color( 0.117647, 0.117647, 0.12549, 1 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
+}
+
+[node name="FileListTitleLabel" type="Label" parent="."]
+anchor_left = 0.035
+anchor_top = 0.1
+anchor_right = 0.035
+anchor_bottom = 0.1
+margin_right = 138.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "File List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RomList" type="ItemList" parent="."]
+margin_left = 34.0
+margin_top = 109.297
+margin_right = 479.0
+margin_bottom = 551.297
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel" type="Label" parent="."]
+anchor_left = 0.035
+anchor_top = 0.1
+anchor_right = 0.035
+anchor_bottom = 0.1
+margin_left = 514.769
+margin_top = -2.3784
+margin_right = 703.769
+margin_bottom = 39.6216
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubstringToFilterLabel" type="Label" parent="."]
+anchor_left = 0.035
+anchor_top = 0.1
+anchor_right = 0.035
+anchor_bottom = 0.1
+margin_left = 515.16
+margin_top = 49.0
+margin_right = 704.16
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 3 )
+text = "Substrings to Filter:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StringsToFilterList" type="ItemList" parent="."]
+margin_left = 552.0
+margin_top = 145.0
+margin_right = 1002.0
+margin_bottom = 338.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoPanelBackground" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_left = 551.0
+margin_top = 354.0
+margin_right = -22.0
+margin_bottom = 552.0
+color = Color( 0.117647, 0.117647, 0.12549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsReportLabel" type="Label" parent="."]
+anchor_left = 0.035
+anchor_top = 0.1
+anchor_right = 0.035
+anchor_bottom = 0.1
+margin_left = 526.16
+margin_top = 304.0
+margin_right = 958.16
+margin_bottom = 483.0
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="FolderDialog" type="FileDialog" parent="."]
@@ -52,9 +148,9 @@ current_dir = "/synology/godot/romcleanerex"
 current_path = "/synology/godot/romcleanerex/"
 
 [node name="MenuButtonFile" type="MenuButton" parent="."]
-margin_left = 10.0
+margin_left = 8.87753
 margin_top = 4.0
-margin_right = 70.0
+margin_right = 68.8775
 margin_bottom = 42.0
 text = "File"
 align = 0
@@ -64,10 +160,10 @@ __meta__ = {
 }
 
 [node name="MenuButtonHelp" type="MenuButton" parent="."]
-margin_left = 75.3266
-margin_top = 4.55759
-margin_right = 230.327
-margin_bottom = 42.5576
+margin_left = 75.0
+margin_top = 3.87754
+margin_right = 141.0
+margin_bottom = 41.8775
 text = "Help"
 align = 0
 switch_on_hover = true
